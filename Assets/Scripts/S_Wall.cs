@@ -18,7 +18,7 @@ public class S_Wall : MonoBehaviour
         isOpened = false;
         done = false;
         moveTo.transform.parent = null;
-        if (color != "red" || color != "blue" || color != "yellow")
+        if (color != "red" && color != "blue" && color != "yellow")
         {
             color = "red";
         }
