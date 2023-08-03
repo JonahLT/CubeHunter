@@ -155,6 +155,19 @@ public class S_PlayerCharacter : MonoBehaviour
         {
             secondGun.SetActive(true);
             Object.Destroy(other.gameObject);
+        } else if(other.gameObject.tag == "HealthPickup")
+        {
+            pickupSound.Play();
+            Debug.Log("Health gained");
+            if (currentHealth >= maxHealth)
+            {
+                currentHealth = maxHealth;
+            } else
+            {
+                currentHealth++;
+            }
+          
+            Object.Destroy(other.gameObject);
         }
     }
 
