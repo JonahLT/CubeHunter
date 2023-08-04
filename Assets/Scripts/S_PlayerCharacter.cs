@@ -133,7 +133,7 @@ public class S_PlayerCharacter : MonoBehaviour
         }
 
         //Other pickups
-        if (other.gameObject.tag == "AmmoPickup")
+        if (other.gameObject.tag == "AmmoPickup" && rectPrism.bullets < rectPrism.maxBullets)
         {
             pickupSound.Play();
             Debug.Log("Ammo picked up!");
@@ -155,18 +155,10 @@ public class S_PlayerCharacter : MonoBehaviour
         {
             secondGun.SetActive(true);
             Object.Destroy(other.gameObject);
-        } else if(other.gameObject.tag == "HealthPickup")
+        } else if(other.gameObject.tag == "HealthPickup" && currentHealth < maxHealth)
         {
             pickupSound.Play();
             Debug.Log("Health gained");
-            if (currentHealth >= maxHealth)
-            {
-                currentHealth = maxHealth;
-            } else
-            {
-                currentHealth++;
-            }
-          
             Object.Destroy(other.gameObject);
         }
     }
